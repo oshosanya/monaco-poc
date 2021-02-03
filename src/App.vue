@@ -1,6 +1,29 @@
 <template>
   <div id="app">
+    <div class="modal" tabindex="-1" :style="display_modal ? 'display: block;' :''">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe src="https://nairaland.com"></iframe>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @click="() => display_modal = false">Close</button>
+            <button type="button" class="btn btn-primary" @click="() => display_modal = false">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" @click="() => display_modal = true">Show Modal</button>
+        </div>
+      </div>
       <div class="row">
         <div class="col">
           <label class="mb-3">Template Name</label>
@@ -46,6 +69,7 @@ export default {
       },
       code: "",
       template_name: "",
+      display_modal: false
     }
   },
   methods: {
